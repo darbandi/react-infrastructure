@@ -3,7 +3,7 @@ Implementation React by configuring Webpack and Babel.
 
 # Installation
 ```sh
-$ yarn | npm install
+$ yarn || $ npm install
 ```
 
 # Start
