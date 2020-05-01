@@ -1,2 +1,17 @@
-language: javascript
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - yarn
+  - npm start
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: <my_name_here>.surge.sh
+  project: ./build/
+on:
+  branch: master
 
