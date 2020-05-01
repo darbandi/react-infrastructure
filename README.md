@@ -13,8 +13,6 @@ $ npm run build
 $ npm run analyse
 ```
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 # Infrastructure
   - Webpack
   - Babel
@@ -24,7 +22,7 @@ $ npm run analyse
   - React Lazy
   - React Profiler
   - HOC
-  - Sass theme
+  - Sass Theme
   - Function Component
 
 # Webpack config!
