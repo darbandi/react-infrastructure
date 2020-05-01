@@ -1,0 +1,10 @@
+@import "css/_var";
+
+.page-1 {
+    .title {
+        @include themify() {
+            color: themed("color") !important;
+            background-color: themed("bg-color") !important;
+        }
+    }
+}
