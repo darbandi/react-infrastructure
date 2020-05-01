@@ -27,7 +27,7 @@ $ npm run analyse
   - Sass theme
   - Function Component
 
-# Webpack Config!
+# Webpack config!
 - webpack-dev-server
 - history-api-fallback
 - react-hot-loader
