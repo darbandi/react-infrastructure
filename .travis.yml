@@ -11,6 +11,7 @@ deploy:
   provider: surge
   skip_cleanup: true
   project: ./build/
+  domain: m-darbandi.surge.sh
 on:
   branch: master
 
