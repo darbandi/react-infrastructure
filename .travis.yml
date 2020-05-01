@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - yarn
-  - npm start
+  - npm run build
 deploy:
   provider: surge
   skip_cleanup: true
