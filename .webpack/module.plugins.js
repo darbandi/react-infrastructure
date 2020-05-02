@@ -9,7 +9,10 @@ const path = require("path");
 
 module.exports = (env, argv) => [
     argv.mode === "production" ? new CleanWebpackPlugin() : null,
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new HtmlWebpackPlugin({
+        template: './public/index.html',
+        title: 'Caching'
+    }),
     new DefinePlugin({
         "process.env": {
             NODE_ENV: JSON.stringify(argv.mode)

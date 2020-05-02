@@ -32,13 +32,19 @@ module.exports = (env = {}, argv = {}) => ({
     },
     output: {
         filename: "static/js/[hash].dataak.js",
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'build'),
+        pathinfo: false
     },
     module: {
         rules: require("./.webpack/module.rules")(env, argv)
     },
     plugins: require("./.webpack/module.plugins")(env, argv),
+
     optimization: {
+        runtimeChunk: 'single',
+        removeAvailableModules: false,
+        removeEmptyChunks: false,
+        splitChunks: false,
         splitChunks: {
             cacheGroups: {
                 commons: {
