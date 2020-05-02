@@ -1,4 +1,5 @@
-# react-infrastructure [![Build Status](https://darbandi.visualstudio.com/react-infrastructure/_apis/build/status/darbandi.react-infrastructure?branchName=master)](https://darbandi.visualstudio.com/react-infrastructure/_build/latest?definitionId=2&branchName=master) [![Build Status](https://travis-ci.com/darbandi/react-infrastructure.svg?branch=master)](https://travis-ci.com/darbandi/react-infrastructure)
+# react-infrastructure [![Build Status](https://dev.azure.com/facebook/create-react-app/_apis/build/status/facebook.create-react-app?branchName=master)](https://darbandi.visualstudio.com/react-infrastructure/_build/latest?definitionId=2&branchName=master) [![Build Status](https://travis-ci.com/darbandi/react-infrastructure.svg?branch=master)](https://travis-ci.com/darbandi/react-infrastructure)
+
 
 Implementation React by configuring Webpack and Babel.
 
