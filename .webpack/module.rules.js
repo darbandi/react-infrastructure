@@ -40,5 +40,17 @@ module.exports = (env, argv) => [
                 }
             }
         ]
+    },
+    {
+        test: /\.tsx?$/,
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: true,
+                    experimentalWatchApi: true,
+                },
+            },
+        ],
     }
 ];
