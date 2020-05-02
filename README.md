@@ -69,5 +69,5 @@ License
 MIT
 
 
-
+[![Build Status](https://travis-ci.com/darbandi/react-infrastructure.svg?branch=master)](https://travis-ci.com/darbandi/react-infrastructure)
 
