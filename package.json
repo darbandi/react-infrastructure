@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "start": "webpack-dev-server --mode=development --history-api-fallback",
-        "build": "webpack --mode=production",
+        "build": "webpack --mode=production --history-api-fallback",
         "analyse": "yarn build --env.analyse"
     },
     "browserslist": {
