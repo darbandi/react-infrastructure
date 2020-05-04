@@ -2,39 +2,45 @@ import "./Page-1.scss"
 import React, { Profiler } from 'react';
 import img from 'img/img.jpg';
 import audio from 'media/01.mp3';
-import { withAppContext } from 'appContext';
+import { useState, useDispatch } from 'appContext';
 import config from 'config';
 import { profilerCallback } from 'utils';
 
-let page1 = (props) => (
+let page1 = () => {
 
-    <Profiler id="page1" onRender={profilerCallback}>
+    const state = useState();
+    const dispatch = useDispatch();
 
-        <div className="page-1">
+    return (
 
-            <h1 className="title">page 1</h1>
+        <Profiler id="page1" onRender={profilerCallback}>
 
-            <div>siteName from site config : {config.siteName}</div>
+            <div className="page-1">
 
-            <div>
-                <span>title from context : {props?.AppContext?.title} {" "}</span>
+                <h1 className="title">page 1</h1>
 
-                <button onClick={() => { props?.AppContext?.setTitle("mohammad") }}>change title to mohammad</button>
+                <div>siteName from site config : {config.siteName}</div>
+
+                <div>
+                    <span>title from context : {state?.title} {" "}</span>
+
+                    <button onClick={() => { dispatch({ type: "setTitle", value: "mohammad" }) }}>change title to mohammad</button>
+                </div>
+
+                <div>
+                    <img src={img} width={100} />
+                </div>
+
+                <div>
+                    <audio src={audio} controls />
+                </div>
+
             </div>
 
-            <div>
-                <img src={img} width={100} />
-            </div>
-
-            <div>
-                <audio src={audio} controls />
-            </div>
-
-        </div>
-
-    </Profiler>
-)
+        </Profiler>
+    )
+}
 
 page1.defaultName = "page1";
 
-export default withAppContext(page1);
+export default page1;

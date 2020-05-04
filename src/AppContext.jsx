@@ -1,44 +1,49 @@
-import React, { useState } from "react"
+import React, { useReducer, createContext, useContext } from 'react'
 
-const AppContext = React.createContext();
+const initialState = {
+    title: "mohammad"
+}
 
-export const AppContextProvider = AppContext.Provider;
-export const AppContextConsumer = AppContext.Consumer;
+const State = createContext(undefined)
+const Dispatch = createContext(undefined)
 
-export default AppContext;
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'setTitle':
+            return { ...state, title: action.value }
+        default:
+            throw new Error(`Unexpected action: ${action.type}`)
+    }
+}
 
-export const withAppContext = (WrappedComponent) => {
-    return (props) => (
-        <AppContextConsumer>
-            {contextProps => {
-                const { state, methods, ...otherProps } = props;
-                return (
-                    <WrappedComponent
-                        AppContext={{
-                            ...contextProps.state,
-                            ...state,
-                            ...contextProps.methods,
-                            ...methods
-                        }}
-                        {...otherProps}
-                    />
-                )
-            }}
-        </AppContextConsumer>
+const Provider = (props) => {
+    const [state, dispatchState] = useReducer(
+        reducer,
+        initialState,
+    )
+    return (
+        <State.Provider value={state}>
+            <Dispatch.Provider value={dispatchState}>
+                {props.children}
+            </Dispatch.Provider>
+        </State.Provider>
     )
 }
 
-export const initializer = () => {
-    const [title, setTitle] = useState("ali")
-    const temp = {
-        methods: {
-            setTitle: (title) => {
-                setTitle(title)
-            }
-        },
-        state: {
-            title: title
-        }
+const useState = () => {
+    const context = useContext(State)
+    if (context === undefined) {
+        throw new Error('useState must be used within a Provider')
     }
-    return (temp)
+    return context
 }
+
+const useDispatch = () => {
+    const context = useContext(Dispatch)
+    if (context === undefined) {
+        throw new Error('useDispatch must be used within a Provider')
+    }
+    return context
+}
+
+export { Provider, useState, useDispatch, initialState }

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { hot } from 'react-hot-loader/root';
 import CustomRouter from './CustomRouter';
-import { AppContextProvider, initializer } from "appContext"
+import { Provider } from "appContext"
 import SwitchTheme from "components/theme/SwitchTheme";
 
 let App = () => {
@@ -12,7 +12,7 @@ let App = () => {
     return (
         <>
             <SwitchTheme />
-            <AppContextProvider value={initializer()}>
+            <Provider>
                 <BrowserRouter>
                     <ul>
                         <li>
@@ -26,7 +26,7 @@ let App = () => {
                     </ul>
                     <CustomRouter />
                 </BrowserRouter>
-            </AppContextProvider>
+            </Provider>
         </>
     )
 }

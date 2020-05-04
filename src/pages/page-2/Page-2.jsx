@@ -1,23 +1,29 @@
 import './Page-2.scss';
 import React from 'react';
 
-import { withAppContext } from 'appContext';
+import { useState, useDispatch } from 'appContext';
 
-const Page2 = (props) => (
+const Page2 = () => {
 
-    <div className="page-2">
+    const state = useState();
+    const dispatch = useDispatch();
 
-        <h1 className="title">pages 2</h1>
+    return (
 
-        <div>
-            <span>title from context : {props?.AppContext?.title} {" "}</span>
+        <div className="page-2">
 
-            <button onClick={() => { props?.AppContext?.setTitle("darbandi") }}>change name to darbandi</button>
+            <h1 className="title">pages 2</h1>
+
+            <div>
+                <span>title from context : {state?.title} {" "}</span>
+
+                <button onClick={() => { dispatch({ type: "setTitle", value: "darbandi" }) }}>change name to darbandi</button>
+            </div>
+
         </div>
-        
-    </div>
-)
+    )
+}
 
 Page2.defaultName = "Page2";
 
-export default withAppContext(Page2);
+export default Page2;
