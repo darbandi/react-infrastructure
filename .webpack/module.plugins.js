@@ -1,14 +1,19 @@
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { DefinePlugin } = require("webpack");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require("path");
 
+
 module.exports = (env, argv) => [
     argv.mode === "production" ? new CleanWebpackPlugin() : null,
+    new CopyPlugin([
+        { from: './public/', to: '' }
+    ]),
     new HtmlWebpackPlugin({
         template: './public/index.html',
         title: 'Caching'
